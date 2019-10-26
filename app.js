@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const graphqlHTTP = require("express-graphql");
 const bodyParser = require("body-parser");
 const graphQLSchema = require("./graphql/schema/index");
-const graphQLResolvers = require('./graphql/resolvers/index');
+const { resolvers } = require('./graphql/resolvers/index');
 
 
 const PORT = 3000;
@@ -16,7 +16,7 @@ app.use(
   new graphqlHTTP({
     graphiql: true,
     schema: graphQLSchema,
-    rootValue: graphQLResolvers
+    rootValue: resolvers
   })
 );
 
